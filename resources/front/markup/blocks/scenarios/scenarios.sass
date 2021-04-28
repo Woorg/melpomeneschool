@@ -1,0 +1,124 @@
+.scenarios
+    background: #DBC8BE
+    &__container
+        padding-top: 20px
+        padding-bottom: 20px
+    &__title
+        margin-bottom: 50px
+        color: #FFF
+        font-family: $c
+        font-weight: 700
+        font-size: 50px
+        line-height: 1.34
+        text-align: center
+        text-shadow: rgb(0, 0, 0 / 50%) -1px -1px 0px, rgb(0, 0, 0 / 50%) -1px 1px 0px, rgb(0, 0, 0 / 50%) 1px 1px 0px, rgb(0, 0, 0 / 50%) 1px -1px 0px
+
+    // &__list
+
+    &__item
+        margin-bottom: 50px
+        display: flex
+
+        &:nth-child(1)
+            .scenarios__term-link,
+            .scenarios__link
+                color: #B3006B
+                &:before
+                    background: #B3006B
+
+        &:nth-child(2)
+            .scenarios__term-link,
+            .scenarios__link
+                color: #445ee9
+                &:before
+                    background: #445ee9
+
+        &:nth-child(3)
+            .scenarios__term-link,
+            .scenarios__link
+                color: #E856A6
+                &:before
+                    background: #E856A6
+
+        &:nth-child(4)
+            .scenarios__term-link,
+            .scenarios__link
+                color: #DB7E14
+                &:before
+                    background: #DB7E14
+
+        &:nth-child(5)
+            .scenarios__term-link,
+            .scenarios__link
+                color: #FF4040
+                &:before
+                    background: #FF4040
+
+
+        &:nth-child(6)
+            .scenarios__term-link,
+            .scenarios__link
+                color: #9B0BE3
+                &:before
+                    background: #9B0BE3
+
+        &:nth-child(7)
+            .scenarios__term-link,
+            .scenarios__link
+                color: #3711CF
+                &:before
+                    background: #3711CF
+
+        &:nth-child(8)
+            .scenarios__term-link,
+            .scenarios__link
+                color: #2C7A05
+                &:before
+                    background: #2C7A05
+
+
+
+
+    &__term
+        max-width: 35%
+        width: 100%
+        font-size: 30px
+        text-shadow: #ffffff -1px -1px 0px, #ffffff -1px 1px 0px, #ffffff 1px 1px 0px, #ffffff 1px -1px 0px
+        text-transform: uppercase
+
+    &__term-link
+        padding-right: 50px
+        display: block
+        font-family: $t
+        line-height: 1.4
+        text-decoration: none
+    &__desc
+        max-width: 65%
+        width: 100%
+
+    // &__term-items
+
+    // &__term-item
+
+    &__link
+        position: relative
+        padding-left: 30px
+        font-family: $t
+        font-weight: 700
+        font-style: italic
+        font-size: 22px
+        line-height: 1.8
+        text-decoration: none
+        text-shadow: #ffffff -1px -1px 0px, #ffffff -1px 1px 0px, #ffffff 1px 1px 0px, #ffffff 1px -1px 0px
+
+        &:before
+            position: absolute
+            top: 50%
+            left: 0
+            content: ''
+            width: 10px
+            height: 10px
+            background: #B3006B
+            border-radius: 50%
+            transform: translateY(-50%)
+

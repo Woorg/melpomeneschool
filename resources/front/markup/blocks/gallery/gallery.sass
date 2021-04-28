@@ -1,0 +1,91 @@
+.gallery
+    background: #DBC8BE
+
+    &__container
+        padding-top: 20px
+        padding-bottom: 20px
+
+    &__text
+        margin-bottom: 80px
+        color: #7285EE
+        font-size: 28px
+        font-style: italic
+        font-family: $t
+        line-height: 1.6
+        text-align: center
+        text-shadow: #ffffff -1px -1px 0px, #ffffff -1px 1px 0px, #ffffff 1px 1px 0px, #ffffff 1px -1px 0px
+
+    &__grid
+        margin-right: -12px
+        margin-left: -12px
+        display: flex
+        flex-wrap: wrap
+
+    &__item
+        margin-bottom: 30px
+        padding-left: 12px
+        padding-right: 12px
+        max-width: 33.3%
+        width: 100%
+
+    &__item_full
+        max-width: 100%
+
+    &__item-w
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+
+    &__pictures
+        display: flex
+        width: 100%
+        justify-content: space-around
+
+    &__picture
+        position: relative
+        padding: 5px
+        background: #FFF
+        font-size: 0
+        flex-shrink: 0
+        box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.4)
+
+        img
+            width: 100%
+            height: 100%
+            object-fit: cover
+            object-position: 50%
+
+        &:after
+            content: ''
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            background: rgba(255, 255, 255, .5)
+            opacity: 0
+            transition: opacity .4s ease
+
+        &:hover
+            &:after
+                opacity: 1
+                transition: opacity .4s ease
+
+
+
+
+    &__caption-w
+        margin-top: 20px
+        max-width: 530px
+        min-height: 40px
+        display: flex
+        justify-content: center
+        align-items: center
+        color: #152CAD
+        font-family: $t
+        font-style: italic
+        font-size: 21px
+        text-align: center
+        line-height: 1.8
+        text-shadow: #ffffff -1px -1px 0px, #ffffff -1px 1px 0px, #ffffff 1px 1px 0px, #ffffff 1px -1px 0px

@@ -1,0 +1,27 @@
+mixin header(data)
+    header.header&attributes(attributes)
+        .header__top
+            .header__container.container
+                .header__w
+                    nav.header__nav.nav.nav_primary
+                        button.nav__trigger
+                            span.nav__trigger-line
+                            span.nav__trigger-line
+                            span.nav__trigger-line
+
+                        ul.nav__list
+                            li.nav__item.nav__item_current
+                                a.nav__link(href="#") О нас
+                            li.nav__item
+                                a.nav__link(href="#") Продукция
+                            li.nav__item
+                                a.nav__link(href="#") Производство
+                            li.nav__item
+                                a.nav__link(href="#") Техническая информация
+                            li.nav__item
+                                a.nav__link(href="#") Сферы применения
+                            li.nav__item
+                                a.nav__link(href="#") Контакты
+
+
+

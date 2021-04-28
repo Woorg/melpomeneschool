@@ -1,0 +1,160 @@
+.nav
+    position: relative
+    &__trigger
+        +resetbutton()
+        width: 51px
+        height: 34px
+        color: #C4C4C4
+        +tr(.3s ease)
+        +mq($large)
+            display: none
+        &:hover
+            color: darken(#C4C4C4, 10)
+            +tr(.3s ease)
+
+
+    &__close
+        +resetbutton()
+        display: none
+        color: #C4C4C4
+        +tr(.3s ease)
+        &:hover
+            color: darken(#C4C4C4, 10)
+            +tr(.3s ease)
+
+    &__list-w
+        position: relative
+        height: 0
+        opacity: 0
+        visibility: hidden
+        // transform: translateY(-100%)
+        +tr(.5s ease)
+        +mq($large)
+            height: auto
+            opacity: 1
+            visibility: visible
+            transform: none
+    &__list
+        display: none
+        +mq($large)
+            display: flex
+            flex-shrink: 1
+            justify-content: space-between
+    &__item
+        // +margin-right(26px)
+        white-space: nowrap
+        &:last-child
+            margin-right: 0
+
+
+    &__item_current
+
+        .nav__link
+            color: #2c48e5
+            font-weight: 700
+
+    &__link
+        padding-right: 10px
+        padding-left: 10px
+        color: #b9c2f6
+        font-size: 18px
+        font-weight: 700
+        line-height: 1.6
+        font-family: $t
+        // text-transform: uppercase
+        text-decoration: none
+        +tr(.3s ease)
+
+        &:hover
+            color: #2ce5e5
+            +tr(.3s ease)
+
+
+.nav_primary
+    &.nav_active
+
+        .nav__list-w
+            position: absolute
+            top: calc(100% + 10px)
+            left: 0
+            width: 250px
+            height: auto
+            opacity: 1
+            visibility: visible
+            // transform: translateY(0%)
+            +tr(.5s ease)
+
+
+        .nav__close
+            z-index: 1
+            position: absolute
+            top: 16px
+            right: 20px
+            display: block
+        .nav__list
+            // z-index: -1
+            padding-top: 30px
+            padding-right: 30px
+            padding-left: 30px
+            padding-bottom: 25px
+            display: flex
+            flex-wrap: wrap
+            background-color: #ffffff
+
+            // &:before
+            //     position: absolute
+            //     top: 14px
+            //     left: 0
+            //     right: 0
+            //     bottom: 0
+            //     content: ''
+            //     background: #FFF
+
+            // &:after
+            //     position: absolute
+            //     top: -14px
+            //     left: 0
+            //     right: 0
+            //     content: ''
+            //     background: transparent
+            //     height: 15px
+
+        .nav__item
+            margin-right: 0
+            margin-bottom: 40px
+            width: 100%
+            &:last-child
+                margin-bottom: 0
+
+        .nav__item_current
+            .nav__link
+                font-size: 16px
+
+        .nav__link
+            font-size: 16px
+
+
+
+
+.nav_second
+
+    .nav__list
+        display: block
+    .nav__item
+        margin-bottom: 12px
+        margin-right: 0
+        +mq($large)
+            margin-right: 30px
+
+    .nav__link
+        color: #878787
+        font-size: 16px
+        font-weight: 400
+        line-height: 1.187
+        text-align: left
+        text-transform: none
+        +tr(.3s ease)
+
+        &:hover
+            color: darken(#878787, 10)
+            +tr(.3s ease)
