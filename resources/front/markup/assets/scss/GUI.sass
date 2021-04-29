@@ -18,17 +18,29 @@
   +tr(background-color .3s linear)
 
   &:hover
-    background-color: darken(#152CAD, 10)
+    background-color: lighten(#152CAD, 10)
 
     +tr(background-color .3s linear)
 
 
+.button_style_second
+  background: #ffd45a
+  color: #353131
+  font-family: $g
+  font-weight: normal
+  font-style: italic
+  border-radius: 8px
+  &:hover
+    background-color: lighten(#ffd45a, 10)
 
 .text
   color: #000000
   font-size: 18px
   font-weight: 400
   line-height: 1.5
+  h1
+    +font-size(50px)
+    font-weight: bold
 
   h2,
   h3
@@ -50,4 +62,3 @@
     line-height: 1.5
     &:last-of-type
         margin-bottom: 0
-

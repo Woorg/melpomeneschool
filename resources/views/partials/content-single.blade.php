@@ -1,13 +1,45 @@
-<article @php post_class() @endphp>
+@php
+  $book_subtitle    = carbon_get_post_meta( get_the_ID(),'book_subtitle' );
+  $book_characters  = carbon_get_post_meta( get_the_ID(),'book_characters' );
+  $book_button_text = carbon_get_post_meta( get_the_ID(),'book_button_text' );
+  $book_file        = carbon_get_post_meta( get_the_ID(),'book_file' );
+
+@endphp
+
+<article @php post_class('article article_single') @endphp>
+  <div class="article__image">
+      {!! the_post_thumbnail(get_the_ID(), 'full') !!}
+  </div>
+
   <header>
-    <h1 class="entry-title">{!! get_the_title() !!}</h1>
-    @include('partials/entry-meta')
+    <h1 class="article__title">{!! get_the_title() !!}</h1>
   </header>
-  <div class="entry-content">
+
+  @if ($book_subtitle)
+  <div class="article__subtitle">
+    {!! wpautop( $book_subtitle ) !!}
+  </div>
+  @endif
+
+  @if ( has_excerpt() )
+  <div class="article__excerpt">
+    {!! wpautop( get_the_excerpt(), false ) !!}
+  </div>
+  @endif
+
+  <div class="article__characters">
+    <div class="article__characters-title">Дійові особи:</div>
+    <div class="article__characters-text">{!! wpautop( $book_characters ) !!}</div>
+  </div>
+
+  <div class="article__text">
     @php the_content() @endphp
   </div>
-  <footer>
-    {!! wp_link_pages(['echo' => 0, 'before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']) !!}
-  </footer>
-  @php comments_template('/partials/comments.blade.php') @endphp
+
+  @if ( $book_file )
+  <div class="article__download-w">
+    <a data-no-swup class="article__download button" href="{!! esc_url( $book_file ) !!}" download>Завантажити сценарій</a>
+  </div>
+  @endif
+
 </article>

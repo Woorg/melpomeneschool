@@ -9,6 +9,8 @@
         'order'          => 'ASC',
         'orderby'        => 'id',
       ]);
+
+      $i = 0;
     @endphp
 
 
@@ -18,10 +20,11 @@
         @php
           $my_books->the_post();
           $image_id = get_post_thumbnail_id();
+          $i++;
         @endphp
         <li class="my-books__item">
           <div class="my-books__item-w">
-            <a class="my-books__link" href="{!! get_the_permalink() !!}">
+            <a class="my-books__link js-to-go" href="{!! site_url('/books') !!}#book-0{{ $i }}">
               <div class="my-books__item-title">{!! get_the_title() !!}</div>
               <div class="my-books__picture">
                 {!! the_post_thumbnail( $image_id, 'book_thumb' ) !!}

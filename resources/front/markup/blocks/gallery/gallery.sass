@@ -8,7 +8,7 @@
     &__text
         margin-bottom: 80px
         color: #7285EE
-        font-size: 28px
+        +font-size(28px)
         font-style: italic
         font-family: $t
         line-height: 1.6
@@ -16,17 +16,22 @@
         text-shadow: #ffffff -1px -1px 0px, #ffffff -1px 1px 0px, #ffffff 1px 1px 0px, #ffffff 1px -1px 0px
 
     &__grid
-        margin-right: -12px
-        margin-left: -12px
         display: flex
         flex-wrap: wrap
+        +mq($small)
+            margin-right: -12px
+            margin-left: -12px
+
 
     &__item
         margin-bottom: 30px
-        padding-left: 12px
-        padding-right: 12px
-        max-width: 33.3%
         width: 100%
+        +mq($small)
+            padding-left: 12px
+            padding-right: 12px
+            max-width: 50%
+        +mq($medium)
+            max-width: 33.3%
 
     &__item_full
         max-width: 100%
@@ -38,17 +43,21 @@
         align-items: center
 
     &__pictures
-        display: flex
         width: 100%
+        display: flex
+        flex-wrap: wrap
         justify-content: space-around
 
     &__picture
         position: relative
+        margin-bottom: 15px
         padding: 5px
         background: #FFF
         font-size: 0
         flex-shrink: 0
         box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.4)
+        +mq($small)
+            margin-bottom: 0
 
         img
             width: 100%
@@ -85,7 +94,7 @@
         color: #152CAD
         font-family: $t
         font-style: italic
-        font-size: 21px
+        +font-size(21px)
         text-align: center
         line-height: 1.8
         text-shadow: #ffffff -1px -1px 0px, #ffffff -1px 1px 0px, #ffffff 1px 1px 0px, #ffffff 1px -1px 0px

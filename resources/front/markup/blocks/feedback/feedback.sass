@@ -5,15 +5,20 @@
         padding-bottom: 20px
         display: flex
         flex-wrap: wrap
+
     &__col
-        max-width: 50%
+        margin-bottom: 15px
         width: 100%
         color: #152CAD
         text-align: center
+        +mq($small)
+            margin-bottom: 0
+            max-width: 50%
+
     &__title
         margin-bottom: 30px
         font-family: $t
-        font-size: 28px
+        +font-size(28px)
         line-height: 1.375
         text-align: center
 
@@ -22,7 +27,7 @@
         padding-left: 20px
         font-weight: 700
         font-family: $i
-        font-size: 17px
+        +font-size(17px)
         line-height: 1.8
 
     &__form

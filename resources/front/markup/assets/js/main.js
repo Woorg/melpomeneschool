@@ -1,6 +1,12 @@
 import svg4everybody from 'svg4everybody';
+import Swup from 'swup';
+import SwupBodyClassPlugin from '@swup/body-class-plugin';
+import SwupScrollPlugin from '@swup/scroll-plugin';
+import SwupSlideTheme from '@swup/slide-theme';
 
-// import nav from '../../blocks/nav/nav';
+
+
+import Nav from '../../blocks/nav/nav';
 // import {pageNavSticky, pageNavMob} from '../../blocks/page-nav/page-nav';
 // import heroSlider from '../../blocks/hero/hero';
 // import firstSlider from '../../blocks/first/first';
@@ -29,31 +35,67 @@ import svg4everybody from 'svg4everybody';
 
     console.log('%c developed by igor gorlov https://gorlov.gq', styles);
 
+    /**
+     * Swup
+     */
+
+    const swup = new Swup({
+      containers: ['#swup'],
+      plugins: [
+        new SwupBodyClassPlugin(),
+        new SwupScrollPlugin({
+          animateScroll: true
+        }),
+        new SwupSlideTheme(),
+      ]
+    });
+
+    /**
+     * Scroll animation
+     */
 
     AOS.init({
-        duration: 1200,
-        startEvent: 'DOMContentLoaded',
+      duration: 1200,
+      startEvent: 'DOMContentLoaded',
     });
 
 
+    /**
+     * Nav
+     */
 
+    const nav = new Nav()
 
-    // Nav
+    // function init() {
 
-    // nav();
-
-
-
-
-    // Animate To bottom
-
-    // $('.js-to-go').click(function(e){
-    //   e.preventDefault();
-    //   var target = $($(this).attr('href'));
-    //   if(target.length){
-    //     var scrollTo = target.offset().top;
-    //     $('body, html').animate({scrollTop: scrollTo+'px'}, 800);
+    //   if (document.querySelector('.my-books')) {
+    //     $('.js-to-go').click(function(e){
+    //       e.preventDefault();
+    //       var target = $($(this).attr('href'));
+    //       if(target.length){
+    //         var scrollTo = target.offset().top;
+    //         $('body, html').animate({scrollTop: scrollTo+'px'}, 800);
+    //       }
+    //     })
     //   }
-    // });
+
+    //   if(document.querySelector('.article_archive_book')) {
+    //     $('.js-to-go').click(function(e){
+    //       e.preventDefault();
+    //       var target = $($(this).attr('href'));
+    //       if(target.length){
+    //         var scrollTo = target.offset().top;
+    //         $('body, html').animate({scrollTop: scrollTo+'px'}, 800);
+    //       }
+    //     })
+    //   }
+
+    // }
+
+
+    // init();
+
+    // swup.on('contentReplaced', init);
+
 
 })(jQuery);

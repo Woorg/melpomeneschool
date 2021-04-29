@@ -1,1 +1,266 @@
-// .page
+.page
+  .page__main
+    padding-top: 25px
+    padding-bottom: 25px
+    +mq($small)
+      padding-top: 50px
+      padding-bottom: 50px
+
+
+.page_nav_open
+    overflow: hidden
+
+.page_inner
+
+  .header
+    position: static
+    min-height: 100px
+    border-bottom: 10px solid #424242
+
+
+  .header__w
+    +mq($large)
+      left: 0
+
+  .page__container
+    padding-top: (44px / 2)
+    padding-bottom: (44px / 2)
+    +mq($small)
+      padding-top: 44px
+      padding-bottom: 44px
+
+
+  .page__description
+    margin-bottom: 40px
+    +mq($small)
+      margin-bottom: 80px
+
+    h1
+      color: #0C9696
+      +font-size(50px)
+      font-family: $t
+      font-weight: 700
+      text-align: center
+      text-shadow: #ffffff -1px -1px 0px, #ffffff -1px 1px 0px, #ffffff 1px 1px 0px, #ffffff 1px -1px 0px
+
+      +mq($small)
+        margin-right: -20px
+        margin-left: -20px
+
+  .page__article
+    &:not(:last-child)
+      margin-bottom: 80px
+
+
+  &.category-3
+    .page__description
+      h1
+        font-family: $c
+        font-style: italic
+
+    .article_with_image
+      .article__title
+        color: #733787
+        +font-size(28px)
+        // text-transform: uppercase
+      .article__excerpt
+        margin-left: auto
+        max-width: 340px
+        color: #ad159e
+        +font-size(17px)
+        text-align: right
+        text-shadow: #ffffff -1px -1px 0px, #ffffff -1px 1px 0px, #ffffff 1px 1px 0px, #ffffff 1px -1px 0px
+
+  &.category-4
+    .page__description
+      h1
+        color: #ff4040
+        font-style: italic
+
+    .article_with_image
+      .article__title,
+      .article__excerpt
+        color: #089641
+        +font-size(28px)
+        text-shadow: #ffffff -1px -1px 0px, #ffffff -1px 1px 0px, #ffffff 1px 1px 0px, #ffffff 1px -1px 0px
+
+      .article__excerpt
+        margin-left: auto
+        max-width: 340px
+        +font-size(17px)
+        text-align: right
+
+  &.category-5
+    .page__description
+      position: relative
+      h1
+        color: #fa9702
+        +font-size(70px)
+        font-style: italic
+
+    .article_with_image
+      .article__title,
+      .article__excerpt
+        color: #089641
+        +font-size(28px)
+        text-shadow: #ffffff -1px -1px 0px, #ffffff -1px 1px 0px, #ffffff 1px 1px 0px, #ffffff 1px -1px 0px
+
+      .article__title
+        text-transform: uppercase
+
+      .article__excerpt
+        margin-left: auto
+        max-width: 340px
+        +font-size(17px)
+        text-align: right
+
+    .page__snowflake
+      position: absolute
+      top: 50%
+      display: none
+      +mq($small)
+        display: block
+      &:nth-child(1)
+        top: calc(50% + 40px)
+        right: -100px
+        transform: translateY(-50%)
+      &:nth-child(2)
+        top: calc(50% + 20px)
+        left: 0
+        width: 90px
+        height: 90px
+        transform: translateY(-50%)
+
+      &:nth-child(3)
+        top: auto
+        left: auto
+        width: 90px
+        height: 90px
+        transform: translate(-173px, 310px)
+
+
+  &.category-7,
+  &.category-8,
+
+    .page__description
+      position: relative
+      h1
+        color: #d151e8
+        +font-size(70px)
+        font-style: italic
+
+    .article_with_image
+      .article__title,
+      .article__excerpt,
+      .article__subtitle
+        color: #089641
+        +font-size(28px)
+
+      .article__title,
+      .article__subtitle
+        color: #fa9702
+        text-shadow: #ffffff -1px -1px 0px, #ffffff -1px 1px 0px, #ffffff 1px 1px 0px, #ffffff 1px -1px 0px
+      .article__title
+        text-transform: uppercase
+
+      .article__subtitle
+        font-size: 12px
+
+      .article__excerpt
+        margin-left: auto
+        max-width: 340px
+        color: #ffd45a
+        +font-size(17px)
+        text-align: right
+
+      .article__characters-title
+        letter-spacing: 0
+        font-style: normal
+
+  &.category-8,
+  &.category-9
+    .page__description
+      position: relative
+      h1
+        color: #7285ee
+
+    .article_with_image
+      .article__title
+        color: #734d06
+      .article__subtitle
+        color: #b7907c
+        font-family: $a
+        font-size: 16px
+        font-weight: 700
+        line-height:  1.8
+
+  &.category-6
+    .page__description
+      h1
+        color: #EDD81A
+        font-style: italic
+
+    .article_with_image
+
+      .article__title,
+      .article__excerpt
+        color: #FF4040
+        +font-size(28px)
+        text-shadow: #ffffff -1px -1px 0px, #ffffff -1px 1px 0px, #ffffff 1px 1px 0px, #ffffff 1px -1px 0px
+
+      .article__title
+        text-transform: uppercase
+
+      .article__excerpt
+        margin-left: auto
+        max-width: 340px
+        color: #733787
+        font-family: $a
+        +font-size(17px)
+        text-align: right
+
+  &.category-9
+    .page__description
+      position: relative
+      h1
+        // color: #7285ee
+        color: #227d00
+
+    .article_with_image
+
+      .article__title
+        color: #227d00
+        +font-size(33px)
+        text-transform: uppercase
+
+      .article__subtitle
+        color: #ffd45a
+        font-family: $t
+        font-size: 20px
+        text-shadow: rgb(0, 0, 0 / 50%) -1px -1px 0px, rgb(0, 0, 0 / 50%) -1px 1px 0px, rgb(0, 0, 0 / 50%) 1px 1px 0px, rgb(0, 0, 0 / 50%) 1px -1px 0px
+      .article__col
+        +mq($small)
+          align-items: flex-start
+
+  &.post-type-archive-book
+
+    .page__description
+      h1
+        color: #FFD45A
+        font-style: italic
+        text-shadow: rgb(0,0,0 / 50%) -1px -1px 0px, rgb(0,0,0 / 50%) -1px 1px 0px, rgb(0,0,0 / 50%) 1px 1px 0px, rgb(0,0,0 / 50%) 1px -1px 0px
+
+
+  &.single-post
+    background: #b9c2f6
+    .header
+      border-bottom: none
+    .page__main
+      padding-top: 25px
+
+.transition-fade
+  transition: 0.4s
+  opacity: 1
+
+html.is-animating .transition-fade
+  opacity: 0

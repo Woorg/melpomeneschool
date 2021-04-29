@@ -1,17 +1,67 @@
 .nav
     position: relative
+    padding-top: 13px
+    padding-bottom: 10px
+    display: flex
+    flex-wrap: wrap
+    background: transparent
+    transition: all .25s ease-in-out
     &__trigger
         +resetbutton()
-        width: 51px
-        height: 34px
+        position: relative
+        margin-left: auto
+        margin-top: 10px
+        margin-right: 20px
+        width: 40px
+        height: 30px
         color: #C4C4C4
         +tr(.3s ease)
+        +mq($small)
+            margin-top: 20px
+            margin-right: 55px
+
         +mq($large)
             display: none
         &:hover
             color: darken(#C4C4C4, 10)
             +tr(.3s ease)
 
+    &__trigger-line
+        position: absolute
+        left: 0
+        background-color: #fff
+        height: 2px
+        width: 100%
+        opacity: 1
+        border-radius: 2px
+        transition: all .25s ease-in-out
+
+        &:nth-child(1)
+            top: 0
+            transform: rotate(0deg)
+
+        &:nth-child(2)
+            top: 50%
+
+        &:nth-child(3)
+            bottom: 0
+            transform: rotate(0deg)
+
+    &__trigger_active
+        .nav__trigger-line
+            transition: all .25s ease-in-out
+
+            &:nth-child(1)
+                top: 0
+                transform: translate(-7px, 15px) rotate(45deg)
+
+            &:nth-child(2)
+                opacity: 0
+                visibility: hidden
+
+            &:nth-child(3)
+                bottom: 0
+                transform: translate(-7px, -15px) rotate(135deg)
 
     &__close
         +resetbutton()
@@ -34,6 +84,7 @@
             opacity: 1
             visibility: visible
             transform: none
+
     &__list
         display: none
         +mq($large)
@@ -69,10 +120,41 @@
             color: #2ce5e5
             +tr(.3s ease)
 
+.nav_style_inner
+    &:after
+        +mq($large)
+          z-index: -1
+          position: absolute
+          top: 0
+          left: -20px
+          right: -50px
+          bottom: 0
+          content: ''
+          background: #eee8d8
+          border-radius: 25px 25px 25px 25px
+
+
+    .nav__link,
+    .current-menu-item
+        color: #696969
+        font-family: $a
+        font-size: 16px
+        font-weight: normal
+        &.current-menu-item,
+        &:hover
+            color: #000
 
 .nav_primary
-    &.nav_active
-
+    &.nav_open
+        height: 100vh
+        background: #152cad
+        transition: all .25s ease-in-out
+        .nav__trigger
+            z-index: 1
+            position: absolute
+            top: 20px
+            right: 20px
+            margin-right: 0
         .nav__list-w
             position: absolute
             top: calc(100% + 10px)
@@ -92,69 +174,31 @@
             right: 20px
             display: block
         .nav__list
-            // z-index: -1
-            padding-top: 30px
+            position: relative
+            // top: -70px
+            padding-top: 25px
             padding-right: 30px
             padding-left: 30px
             padding-bottom: 25px
             display: flex
             flex-wrap: wrap
-            background-color: #ffffff
-
-            // &:before
-            //     position: absolute
-            //     top: 14px
-            //     left: 0
-            //     right: 0
-            //     bottom: 0
-            //     content: ''
-            //     background: #FFF
-
-            // &:after
-            //     position: absolute
-            //     top: -14px
-            //     left: 0
-            //     right: 0
-            //     content: ''
-            //     background: transparent
-            //     height: 15px
 
         .nav__item
             margin-right: 0
-            margin-bottom: 40px
+            margin-bottom: 20px
             width: 100%
+            text-align: center
             &:last-child
                 margin-bottom: 0
 
-        .nav__item_current
+        .current-menu-item
             .nav__link
-                font-size: 16px
+                color: #dbc8be
 
         .nav__link
-            font-size: 16px
-
-
-
-
-.nav_second
-
-    .nav__list
-        display: block
-    .nav__item
-        margin-bottom: 12px
-        margin-right: 0
-        +mq($large)
-            margin-right: 30px
-
-    .nav__link
-        color: #878787
-        font-size: 16px
-        font-weight: 400
-        line-height: 1.187
-        text-align: left
-        text-transform: none
-        +tr(.3s ease)
-
-        &:hover
-            color: darken(#878787, 10)
-            +tr(.3s ease)
+            color: #fff
+            font-weight: 400
+            font-family: $a
+            font-size: 20px
+            &:hover
+                color: #dbc8be

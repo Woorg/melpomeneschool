@@ -38,7 +38,7 @@ if (version_compare('4.7.0', get_bloginfo('version'), '>=')) {
  * Ensure dependencies are loaded
  */
 if (!class_exists('Roots\\Sage\\Container')) {
-    if (!file_exists($composer = __DIR__.'/../vendor/autoload.php')) {
+    if (!file_exists($composer = __DIR__ . '/../vendor/autoload.php')) {
         $sage_error(
             __('You must run <code>composer install</code> from the Sage directory.', 'sage'),
             __('Autoloader not found.', 'sage')
@@ -85,9 +85,9 @@ array_map(
 Container::getInstance()
     ->bindIf('config', function () {
         return new Config([
-            'assets' => require dirname(__DIR__).'/config/assets.php',
-            'theme' => require dirname(__DIR__).'/config/theme.php',
-            'view' => require dirname(__DIR__).'/config/view.php',
+            'assets' => require dirname(__DIR__) . '/config/assets.php',
+            'theme' => require dirname(__DIR__) . '/config/theme.php',
+            'view' => require dirname(__DIR__) . '/config/view.php',
         ]);
     }, true);
 
@@ -152,35 +152,37 @@ function melpomene_script_loader_tag($tag, $handle)
 
 /**
     Add svg support
-*/
+ */
 
 
-add_filter( 'mime_types', 'svg_upload_allow' );
+add_filter('mime_types', 'svg_upload_allow');
 
-function svg_upload_allow( $mimes ) {
+function svg_upload_allow($mimes)
+{
     $mimes['svg']  = 'image/svg+xml';
 
     return $mimes;
 }
 
 
-add_filter( 'wp_check_filetype_and_ext', 'fix_svg_mime_type', 10, 5 );
+add_filter('wp_check_filetype_and_ext', 'fix_svg_mime_type', 10, 5);
 
 # Исправление MIME типа для SVG файлов.
-function fix_svg_mime_type( $data, $file, $filename, $mimes, $real_mime = '' ){
+function fix_svg_mime_type($data, $file, $filename, $mimes, $real_mime = '')
+{
 
     // WP 5.1 +
-    if( version_compare( $GLOBALS['wp_version'], '5.1.0', '>=' ) )
-        $dosvg = in_array( $real_mime, [ 'image/svg', 'image/svg+xml' ] );
+    if (version_compare($GLOBALS['wp_version'], '5.1.0', '>='))
+        $dosvg = in_array($real_mime, ['image/svg', 'image/svg+xml']);
     else
-        $dosvg = ( '.svg' === strtolower( substr($filename, -4) ) );
+        $dosvg = ('.svg' === strtolower(substr($filename, -4)));
 
     // mime тип был обнулен, поправим его
     // а также проверим право пользователя
-    if( $dosvg ){
+    if ($dosvg) {
 
         // разрешим
-        if( current_user_can('manage_options') ){
+        if (current_user_can('manage_options')) {
 
             $data['ext']  = 'svg';
             $data['type'] = 'image/svg+xml';
@@ -189,7 +191,6 @@ function fix_svg_mime_type( $data, $file, $filename, $mimes, $real_mime = '' ){
         else {
             $data['ext'] = $type_and_ext['type'] = false;
         }
-
     }
 
     return $data;
@@ -199,7 +200,7 @@ function fix_svg_mime_type( $data, $file, $filename, $mimes, $real_mime = '' ){
 
 /**
     Change nav item class
-*/
+ */
 
 function melpomene_add_additional_class_on_li($classes, $item, $args)
 {
@@ -212,7 +213,7 @@ add_filter('nav_menu_css_class', 'melpomene_add_additional_class_on_li', 1, 3);
 
 /**
     Change nav link class
-*/
+ */
 
 function melpomene_filter_nav_menu_link_attributes($atts, $item, $args, $depth)
 {
@@ -233,4 +234,47 @@ function images_path()
 {
     $images_path = get_template_directory_uri() . '/front/static/prod/assets/images/';
     return $images_path;
+}
+
+
+// Pre get posts archive
+
+add_action('pre_get_posts', 'melpomene_adjust_queries');
+
+
+
+function melpomene_adjust_queries($query)
+{
+
+    if (is_category() && $query->is_main_query()) {
+
+        $query->set('posts_per_page', -1);
+        $query->set('orderby', 'id');
+        $query->set('order', 'ASC');
+    }
+
+    if (is_post_type_archive('book') && $query->is_main_query()) {
+
+        $query->set('posts_per_page', -1);
+        $query->set('orderby', 'id');
+        $query->set('order', 'ASC');
+    }
+}
+
+
+/**
+ * Automatic updates
+ */
+
+add_filter('auto_update_plugin', '__return_true');
+add_filter('auto_update_theme', '__return_true');
+
+
+/**
+ * Random
+ */
+
+function random()
+{
+    return (float)rand() / (float)getrandmax();
 }

@@ -19,12 +19,16 @@
     "tiny-slider": "^2.9.3"
   },
   "devDependencies": {
+    "@swup/body-class-plugin": "^1.0.2",
+    "@swup/scroll-plugin": "^1.1.0",
+    "@swup/slide-theme": "^1.0.5",
     "aos": "^2.3.4",
     "gulp": "4.0.2",
     "postcss": "^8.2.13",
     "postcss-import": "^14.0.1",
     "postcss-loader": "^5.2.0",
-    "postcss-pxtorem": "^5.1.1"
+    "postcss-pxtorem": "^5.1.1",
+    "swup": "^2.0.14"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

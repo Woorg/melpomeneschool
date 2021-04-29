@@ -8,6 +8,7 @@
   +tr(.3s linear)
 
   &__container
+    position: relative
     padding-top: 12px
     display: flex
     // justify-content: space-between
@@ -21,15 +22,27 @@
   &__slogan
     position: relative
     margin-bottom: 20px
-    max-width: 940px
+    margin-right: auto
+    margin-left: auto
+    padding-right: 50px
+    padding-left: 50px
+    max-width: 410px
     color: #FFF
     flex-grow: 1
     text-align: center
     font-family: $a
-    font-size: 53px
+    +font-size(25px)
     font-weight: 700
     line-height: 1.4
     text-shadow: rgb(0, 0, 0 / 50%) -1px -1px 0px, rgb(0, 0, 0 / 50%) -1px 1px 0px, rgb(0, 0, 0 / 50%) 1px 1px 0px, rgb(0, 0, 0 / 50%) 1px -1px 0px
+    +mq($small)
+      +font-size(53px)
+    +mq($medium)
+      max-width: 940px
+      padding-right: 30px
+      padding-left: 30px
+
+
 
     &:after,
     &:before
@@ -53,17 +66,19 @@
       background-size: 10px 10px
 
   &__w
-    position: relative
+    position: absolute
     z-index: 1
-    left: -100px
-    padding-top: 13px
-    padding-bottom: 10px
+    top: 0
+    right: 0
+    left: 0
+
+    width: 100%
     display: flex
     flex-wrap: wrap
-    width: 100%
-    // +mq($medium)
+    +mq($large)
+      position: relative
+      left: -100px
     //   padding-bottom: 13px
-
 
     +mq($large)
       margin-left: auto
@@ -76,14 +91,16 @@
       // max-width: 85.5%
 
   &__nav
-    margin-right: auto
-    width: 50%
+    margin-left: auto
+    width: 100%
 
-    +mq($large)
+    +mq($medium)
       // margin-top: 2px
       margin-right: 0
       // max-width: 820px
       // max-width: 82%
-      width: 100%
 
 
+.header_nav-open
+  .header__container
+    position: static
