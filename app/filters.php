@@ -13,6 +13,38 @@ add_filter('body_class', function (array $classes) {
         }
     }
 
+    if (is_single()) {
+        if (in_category(1,  get_the_ID())) {
+            $classes[] = 'post-in-cat-1';
+        }
+        if (in_category(3,  get_the_ID())) {
+            $classes[] = 'post-in-cat-3';
+        }
+        if (in_category(4,  get_the_ID())) {
+            $classes[] = 'post-in-cat-4';
+        }
+        if (in_category(5,  get_the_ID())) {
+            $classes[] = 'post-in-cat-5';
+        }
+        if (in_category(7,  get_the_ID())) {
+            $classes[] = 'post-in-cat-7';
+        }
+        if (in_category(8,  get_the_ID())) {
+            $classes[] = 'post-in-cat-8';
+        }
+        if (in_category(6,  get_the_ID())) {
+            $classes[] = 'post-in-cat-6';
+        }
+        if (in_category(9,  get_the_ID())) {
+            $classes[] = 'post-in-cat-9';
+        }
+    }
+
+
+
+
+
+
     /** Add class if sidebar is active */
     if (display_sidebar()) {
         $classes[] = 'sidebar-primary';
@@ -40,7 +72,7 @@ collect([
     'index', '404', 'archive', 'author', 'category', 'tag', 'taxonomy', 'date', 'home',
     'frontpage', 'page', 'paged', 'search', 'single', 'singular', 'attachment', 'embed'
 ])->map(function ($type) {
-    add_filter("{$type}_template_hierarchy", __NAMESPACE__.'\\filter_templates');
+    add_filter("{$type}_template_hierarchy", __NAMESPACE__ . '\\filter_templates');
 });
 
 /**
@@ -61,7 +93,7 @@ add_filter('template_include', function ($template) {
     }, []);
     if ($template) {
         echo template($template, $data);
-        return get_stylesheet_directory().'/index.php';
+        return get_stylesheet_directory() . '/index.php';
     }
     return $template;
 }, PHP_INT_MAX);
@@ -84,7 +116,7 @@ add_filter('comments_template', function ($comments_template) {
 
     if ($theme_template) {
         echo template($theme_template, $data);
-        return get_stylesheet_directory().'/index.php';
+        return get_stylesheet_directory() . '/index.php';
     }
 
     return $comments_template;

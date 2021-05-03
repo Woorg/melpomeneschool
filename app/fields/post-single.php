@@ -18,9 +18,9 @@ add_action('carbon_fields_register_fields', function () {
             // Field::make( 'rich_text', 'book_excerpt', __( 'Book excerpt' ) ),
 
             // Field::make( 'text', 'book_link', __( 'Book external link' ) )
-            // Field::make('text', 'book_button_text', __('Book button text'))
-            //     ->set_width(50)
-            //     ->set_attribute('placeholder', 'Завантажити сценарій'),
+            Field::make('text', 'book_button_text', __('Book button text'))
+                ->set_width(50)
+                ->set_attribute('placeholder', 'Завантажити сценарій'),
             Field::make('file', 'book_file', __('Book file'))
                 ->set_width(50)
                 ->set_value_type('url')

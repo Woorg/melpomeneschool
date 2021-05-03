@@ -2,8 +2,8 @@ import svg4everybody from 'svg4everybody';
 import Swup from 'swup';
 import SwupBodyClassPlugin from '@swup/body-class-plugin';
 import SwupScrollPlugin from '@swup/scroll-plugin';
-import SwupSlideTheme from '@swup/slide-theme';
-
+// import SwupSlideTheme from '@swup/slide-theme';
+import SwupFadeTheme from '@swup/fade-theme';
 
 
 import Nav from '../../blocks/nav/nav';
@@ -35,6 +35,7 @@ import Nav from '../../blocks/nav/nav';
 
     console.log('%c developed by igor gorlov https://gorlov.gq', styles);
 
+
     /**
      * Swup
      */
@@ -46,7 +47,9 @@ import Nav from '../../blocks/nav/nav';
         new SwupScrollPlugin({
           animateScroll: true
         }),
-        new SwupSlideTheme(),
+
+        // new SwupSlideTheme(),
+        new SwupFadeTheme(),
       ]
     });
 

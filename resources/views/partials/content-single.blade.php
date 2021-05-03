@@ -3,7 +3,7 @@
   $book_characters  = carbon_get_post_meta( get_the_ID(),'book_characters' );
   $book_button_text = carbon_get_post_meta( get_the_ID(),'book_button_text' );
   $book_file        = carbon_get_post_meta( get_the_ID(),'book_file' );
-
+  $book_button_text = $book_button_text ? $book_button_text : 'Завантажити сценарій' ;
 @endphp
 
 <article @php post_class('article article_single') @endphp>
